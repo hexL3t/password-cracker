@@ -38,6 +38,7 @@
                         <button class="tab-button" onclick="openTab('progress')">progress</button>
                         <button class="tab-button" onclick="openTab('code')">code</button>
                     </div>
+                {% if cracked_progress %}
                     <div class="tab-content" id="progress">
                         <p>cracked progress:</p>
                         <ul>
@@ -56,6 +57,7 @@
                 <p>cracked password <span>{{ cracked_progress[-1] }}</span></p>
                 <p>time taken <span>{{ elapsed_time }} seconds</span></p>
             </div>
+            {% endif %}
              <!-- Clear Progress Button -->
              <button id="clear-progress-btn">Clear Progress</button>
         
