@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--==== CSS ====-->    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!--==== REMIXICON ====-->    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+
+    <title>Password Cracker</title>
+</head>
+<body>
+
+    <div class="container">
+        <img src="/static/img/hexagonal-bg.jpg" alt="image" class="pc_bg">
+        <div class="password-cracker">
+            <h1 class="pw_title">Password Cracker</h1>
+            <div class="content">
+                <div class="pwc">
+                    <form class=""method="POST">           
+                        <div class="pw_inputs">
+                            <label for="password">Enter Password:</label>
+                            <input type="text" id="password" name="password" required>
+                        </div>
+
+                        <button type="submit">Crack Password</button>
+                    </form>
+
+
+                </div>
+
+                <div class="tab-container">
+                    <div class="tabs">
+                        <button class="tab-button" onclick="openTab('progress')">progress</button>
+                        <button class="tab-button" onclick="openTab('code')">code</button>
+                    </div>
+                    <div class="tab-content" id="progress">
+                        <p>cracked progress:</p>
+                        <ul>
+                            {% for progress in cracked_progress %}
+                            <li>{{ progress }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="code">
+                        <p>python code:</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pwc_result">
+                <p>cracked password <span>{{ cracked_progress[-1] }}</span></p>
+                <p>time taken <span>{{ elapsed_time }} seconds</span></p>
+            </div>
+             <!-- Clear Progress Button -->
+             <button id="clear-progress-btn">Clear Progress</button>
+        
+        </div>
+    </div>
+
+    <!--
+    <div class="container">
+        <h1>Password Cracker</h1>
+        <form method="POST">
+            <label for="password">Enter Password:</label>
+            <input type="text" id="password" name="password" required>
+            <button type="submit">Crack Password</button>
+        </form>
+
+        {% if cracked_progress %}
+        <div class="result">
+            <p>Cracked Progress:</p>
+            <ul>
+                {% for progress in cracked_progress %}
+                <li>{{ progress }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="result">
+            <p>Cracked Password: {{ cracked_progress[-1] }}</p>
+            <p>Time Taken: {{ elapsed_time }} seconds</p>
+        </div>
+        {% endif %}
+    </div> -->
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tab.js') }}"></script>
+</body>
+</html>
