@@ -10,27 +10,55 @@
     <!--==== REMIXICON ====-->    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 
+    <!-- FONT AWESOME -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 
     <title>Password Cracker</title>
 </head>
 <body>
+    <section class="header">
+        <nav>
+            <a href="#" class="logo">
+                <i class="ri-lock-unlock-fill"></i>
+                <span>password cracker</span>
+            </a>
+        </nav>
 
-    <div class="container">
-        <img src="/static/img/hexagonal-bg.jpg" alt="image" class="pc_bg">
+        <div class="header-content container">
+            <h2 class="pw_title header-title">
+                <i class="ri-lock-unlock-fill"></i>
+                <span>password cracker</span>
+            </h2>
+            <p>
+                The Password Cracker web tool allows users to input a password,
+                which is then cracked using a brute-force technique. The web tool 
+                provides real-time progress updates, showing the cracked password 
+                character by character and the time taken to crack it.
+            </p>
+        </div>
+    </section>
+
+    <section class="container cracker">
         <div class="password-cracker">
-            <h1 class="pw_title">Password Cracker</h1>
+            <h1 class="pw_title">
+                <i class="ri-lock-unlock-fill"></i>
+                <span>password cracker</span>
+            </h1>
+            <!-- Clear Progress Button -->
+            <button id="clear-progress-btn">
+                <i class="ri-restart-fill"></i>
+            </button>
             <div class="content">
                 <div class="pwc">
                     <form class=""method="POST">           
                         <div class="pw_inputs">
-                            <label for="password">Enter Password:</label>
+                            <label for   ="password">Enter Password:</label>
                             <input type="text" id="password" name="password" required>
                         </div>
 
-                        <button type="submit">Crack Password</button>
+                        <button type="submit" class="form-btn">Crack Password</button>
                     </form>
-
-
                 </div>
 
                 <div class="tab-container">
@@ -40,54 +68,96 @@
                     </div>
                 {% if cracked_progress %}
                     <div class="tab-content" id="progress">
-                        <p>cracked progress:</p>
+                        <p class="tab-title">cracked progress:</p>
                         <ul>
                             {% for progress in cracked_progress %}
-                            <li>{{ progress }}</li>
+                            <li><span class="progress-number">{{ loop.index }}</span> {{ progress }}</li>
                             {% endfor %}
                         </ul>
                     </div>
                     <div class="tab-content" id="code">
-                        <p>python code:</p>
+                        <p class="tab-title">python code:</p>
+                        <ul>
+
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <div class="pwc_result">
-                <p>cracked password <span>{{ cracked_progress[-1] }}</span></p>
-                <p>time taken <span>{{ elapsed_time }} seconds</span></p>
+                <div class="og-pass">
+                    <p class="result-title">original password </p>
+                    <div class="result-value">
+                        <p>{{ original_password }}</p>
+                    </div>
+                </div>
+                <div class="crack-pass">
+                    <p class="result-title">cracked password</p>
+                        <div class="crack-value">
+                            <p>{{ cracked_progress[-1] }}</p>
+                        </div>
+                </div>
             </div>
-            {% endif %}
-             <!-- Clear Progress Button -->
-             <button id="clear-progress-btn">Clear Progress</button>
-        
-        </div>
-    </div>
 
-    <!--
-    <div class="container">
-        <h1>Password Cracker</h1>
-        <form method="POST">
-            <label for="password">Enter Password:</label>
-            <input type="text" id="password" name="password" required>
-            <button type="submit">Crack Password</button>
-        </form>
+            <div class="pwc_time">
+                <p class="result-title time-taken">
+                    <i class="ri-timer-line"></i>
+                </p>
+                <div class="result-time">
+                    <p>{{ elapsed_time }}</p>
+                </div>
+            </div>
+            {% endif %}        
+        </div>
+    </section>
 
-        {% if cracked_progress %}
-        <div class="result">
-            <p>Cracked Progress:</p>
-            <ul>
-                {% for progress in cracked_progress %}
-                <li>{{ progress }}</li>
-                {% endfor %}
-            </ul>
+    <section class="container">
+        <div class="info-content"> 
+            <div class="content-left">
+                <p class="content-title">how it works:</p>
+                <div>
+                    <ul class="list-text">
+                        <li>Enter a password and hit "Crack Password."</li>
+                        <li>The tool will attempt to match each character from a 
+                            predefined dictionary, showing progress as it goes.</li>
+                        <li  class="list-top">The process time is displayed at the end, indicating 
+                            how long the cracking process took. </li>
+                        <li class="list-top">Elapsed Time: Displays how long the cracking process takes.</li>
+                        <li>You can reset the progress using the "Clear Progress" button.</li>
+                    </ul>
+                    <ul class="bullets">
+                        <li>1</li>
+                        <li>2</li>
+                        <li class="bullet-top">3</li>
+                        <li class="bullet-top">4</li>
+                        <li class="bullet-top">5</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-right">
+                <p class="content-title">technologies used:</p>
+                <div>
+                    <ul class="list-text">
+                        <li>for the structure of the page.</li>
+                        <li>for styling, using custom properties for design consistency.</li>
+                        <li>for interactive features (e.g., form behavior, tab functionality, and progress clearing).</li>
+                        <li>for back-end logic to handle password cracking and rendering the results dynamically.</li>
+                    </ul>
+    
+                    <ul class="bullets">
+                        <li><i class="ri-html5-fill"></i> </li>
+                        <li><i class="ri-css3-fill"></i> </li>
+                        <li class="bullet-half"><i class="ri-javascript-fill"></i></li>
+                        <li class="bullet-half"><i class="fa-brands fa-python"></i></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="result">
-            <p>Cracked Password: {{ cracked_progress[-1] }}</p>
-            <p>Time Taken: {{ elapsed_time }} seconds</p>
-        </div>
-        {% endif %}
-    </div> -->
+    </section>
+    <section class="footer">
+        <p><i class="ri-copyright-line"></i> 2025 Tia Darvell. All Rights Reserved.</p>
+    </section>
+    <!-- JS -->
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
     <script src="{{ url_for('static', filename='js/tab.js') }}"></script>
 </body>

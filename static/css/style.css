@@ -3,10 +3,13 @@
 
 /* -- Variables CSS -- */
 :root {
-    /*== Colours ==*/
-    /* Colour mode HSL(hue, saturation, lightness)*/
+    /*== Colors ==*/
     --white-color: hsl(0, 0%, 100%);
     --black-color: hsl(0, 0%, 0%);
+
+    --first-color: hsl(220, 100%, 41%);
+    --second-color: hsl(335, 98%, 50%);
+    --third-color: hsl(208, 100%, 6%);
 
     --blue-color: hsla(220, 100%, 41%, .25);
     --blue-color-border: hsla(220, 100%, 41%, .75);
@@ -17,23 +20,21 @@
     --navy-color: hsla(208, 100%, 6%, .40);
     --navy-color-border: hsla(208, 100%, 6%, .7);
 
+    --white-transparent: hsla(0, 0%, 100%, .8);
     --empty-bg: hsla(0, 0%, 0%, 0);
- 
+
     /*== Font & Typography ==*/
-    /* .5rem = 8px | 1rem = 16px ...*/
     --body-font: "Fira Code", serif;
     --h1-font-size: 2rem;
     --normal-font-size: 1rem;
     --small-font-size: .813rem;
 
-
-    --border-radius: 0.2rem;
-
+    --border-radius: 0.5rem;
     --z-index: 100;
 }
 
-/* -- Base -- */
-*{
+/* -- Base Styles -- */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -44,13 +45,21 @@
 }
 
 body {
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
-    color: var(--white-color);
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('/static/img/hexagonal-bg.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25rem;
 }
 
 a {
     text-decoration: none;
+    color: var(--white-color);
 }
 
 ul {
@@ -62,27 +71,41 @@ img {
     height: auto;
 }
 
+p {
+    word-wrap: break-word; /* Legacy support */
+    overflow-wrap: break-word; /* Modern standard */
+}
+
+/* -- Layout Helpers -- */
 .container {
     max-width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-flow: column;
 }
 
 .pc_bg {
     position: absolute;
     width: 100%;
-    height:100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
 }
 
-.password-cracker {
-    width: 80%;
+.password-cracker, 
+.footer{
     position: relative;
+}
+
+.content-left,.content-right{
+    color: var(--white-color);
+}
+
+/* -- Password Cracker Styles -- */
+.password-cracker, .info-content  {
+    width: 80%;
     margin-inline: 1.5rem;
-    row-gap: 1.25rem;
     backdrop-filter: blur(20px);
     padding: 2rem;
     border: 0.5em solid var(--pink-color);
@@ -90,28 +113,32 @@ img {
     background-color: var(--navy-color);
 }
 
-.content{
-    display: flex;
-    justify-content: center;
+.pw_title, 
+.pw_inputs label, 
+.result-title, 
+.result-time {
+    color: var(--white-color);
 }
 
-.pwc, .tab-container{
-    width: 50%;
+.content, .pwc_result, .pwc_time {
+    display: flex;
+    margin-top: .25rem;
+}
+
+.pwc, .tab-container {
     display: inherit;
     justify-content: center;
     align-items: center;
 }
 
-/* Tabs */
+/* -- Tabs Styles -- */
 .tab-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    grid-gap: 0.4rem;
     padding: 1.5rem 0 1.3rem;
     flex-wrap: wrap;
-    width: 70%;
 }
 
 .tabs {
@@ -129,7 +156,6 @@ img {
     border: 0.8px solid var(--navy-color);
     cursor: pointer;
     font-weight: 500;
-    text-wrap: nowrap;
     background-color: var(--blue-color);
     color: var(--white-color);
     width: 50%;
@@ -139,26 +165,39 @@ img {
     background-color: var(--pink-color);
 }
 
-/* Default styling for hidden content */
 .tab-content {
-    display: none; /* Default hidden, only the active one is shown */
+    display: none;
     border: 0.25rem solid var(--pink-color);
-    background-color: var(--white-color);
-    color: var(--navy-color);
-    height: 350px; /* Fixed height */
-    width: 100%;
+    background-color: var(--navy-color);
+    backdrop-filter: blur(20px);
+    height: 250px;
     padding: 0.5rem;
-    overflow-y: auto; /* Enables vertical scrolling */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    scrollbar-width: thin; /* Optional: makes scrollbar thinner */
 }
 
-/* Show only the active tab */
+.tab-title {
+    color: var(--second-color);
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+
 .tab-content.active {
     display: block;
 }
 
-/* Optional: Custom scrollbar styling */
+.tab-content ul {
+    height: 190px;
+    overflow-y: auto;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    color: var(--third-color);
+    padding: 0.5rem;
+    background-color: var(--white-transparent);
+}
+
+.tab-content li {
+    width: fit-content;
+}
+
 .tab-content::-webkit-scrollbar {
     width: 6px;
 }
@@ -168,24 +207,65 @@ img {
     border-radius: 10px;
 }
 
-/* Active tab button styling */
 .tab-button.active,
 .tab-button:hover {
-    background-color: var(--pink-color); /* Adjust as needed */
+    background-color: var(--pink-color);
     color: white;
 }
 
+/* -- Buttons Styles -- */
 button {
-    width: 10rem;
-    height: 2rem;
+    padding: 0.5rem 1rem;
     background-color: var(--pink-color);
     border: 0.1rem solid var(--pink-color-border);
     color: var(--white-color);
+    transition: 0.3s ease;
+    cursor: pointer;
+    border-radius: var(--border-radius);
 }
 
-.tab-button, button {
-    font-family: var(--body-font);
+button:hover,
+.tab-button.active:hover {
+    background-color: var(--second-color);
 }
+
+#clear-progress-btn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    padding: 0 0;
+    background-color: transparent;
+    color: var(--pink-color);
+    border:none;
+    transition: 0.3s;
+}
+
+#clear-progress-btn:hover{
+    color: var(--second-color);
+}
+
+#clear-progress-btn i {
+    font-size: 1.6rem;
+}
+
+#clear-progress-btn:hover::before {
+    position: inherit;
+    top: 0.3rem;
+    right: 2rem;
+    content: "clear";
+    color: var(--white-color);
+    font-size: 0.8rem;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+#clear-progress-btn::before{
+    content: "";
+    opacity: 0;
+}
+
+/* -- Form Styles -- */
 .pw_inputs {
     display: flex;
     flex-direction: column;
@@ -193,7 +273,8 @@ button {
 }
 
 form {
-    width: 80%;
+    width: 100%;
+    margin-right: 0.5rem;
 }
 
 form input {
@@ -201,7 +282,242 @@ form input {
     font-size: var(--normal-font-size);
     font-family: var(--body-font);
 }
-form button,
-.password-cracker button {
+
+.form-btn {
     margin-top: 1rem;
+}
+
+/* -- Layout Specific Styles -- */
+.tab-container, .crack-pass {
+    width: 60%;
+}
+
+.pwc, .og-pass {
+    width: 40%;
+}
+
+.crack-pass, .og-pass {
+    display: inherit;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0 0.6rem;
+}
+
+/* -- Result Styles -- */
+.result-value, .crack-value, .result-time {
+    display: flex;
+    align-items: center;
+    scrollbar-width: thin;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.result-value, .crack-value {
+    height: 3rem;
+    border: 0.2rem solid var(--third-color);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+}
+
+.result-value {
+    color: var(--third-color)!important;
+    background-color: var(--white-transparent);
+}
+
+.crack-value {
+    color: var(--second-color);
+    background-color: var(--white-color);
+}
+
+.result-value p,
+.crack-value p,
+.tab-content ul {
+    white-space: nowrap;
+}
+
+.tabs, .tab-content {
+    width: 95%;
+}
+
+/* -- Progress and Time Styles -- */
+.progress-number {
+    color: var(--navy-color);
+}
+
+.pwc_time {
+    width: 100%;
+    justify-content: right;
+    padding-right: 0.7rem;
+}
+
+.result-time {
+    transition: 0.3s ease;
+    width: 13.5rem;
+    height: 2rem;
+    background-color: var(--first-color);
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-taken{
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+}
+
+.time-taken i{
+    padding: 0.3rem 0.3rem 0.2rem 0.3rem;
+    font-size: 1.5rem;
+    transition: 0.3s ease;
+    background-color: var(--first-color);
+}
+
+.time-taken i:hover,
+.result-time:hover{
+    background-color: transparent;
+}
+
+.time-taken:hover::before {
+    position: inherit;
+    content: "time taken";
+    color: var(--white-color);
+    background-color: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    margin-right: 0.4rem;
+}
+
+.time-taken i:hover::before{
+    background-color: transparent;
+}
+
+.time-taken::before {
+    content: "";
+    opacity: 0;
+}
+
+
+.footer {
+    font-size: 0.6rem;
+    background-color: var(--third-color);
+    color: var(--white-color);
+    width: 100vw;
+    margin-top: 0.5rem;
+    text-align: right;
+    padding: 0.5rem 1rem;
+}
+
+.flask {
+    transform: scaleX(-1);
+}
+
+.info-content {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    row-gap: 2rem;
+}
+
+.header-content{
+    width: 90%;
+    gap: 1rem;
+}
+
+.header-title {
+    font-size: 2rem;
+}
+
+.header-content p {
+    color: var(--white-color);
+    font-size: 0.8em;
+    width: 80%;
+}
+
+nav {
+    width: 100vw;
+    height: 2rem;
+    background-color: var(--first-color);
+    color:var(--white-color);
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.cracker {
+    padding: 1.7rem 0;
+}
+
+.info-content {
+    width: 80%;
+    border: 0.2rem solid var(--blue-color);
+    gap: 2rem;
+    justify-content: center;
+}
+
+.content-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.content-left div,
+.content-right div {
+    display: flex;
+    flex-direction: row-reverse;
+    column-gap: 1rem;
+}
+
+.list-text {
+    font-size: 0.8rem;
+}
+
+.list-text li {
+    margin-bottom: 0.8rem;
+}
+
+.bullets li {
+    margin-bottom: 1rem;
+}
+
+.content-right {
+    width: 45%;
+}
+
+.content-right div .list-text li {
+    margin-bottom: 1.05rem;
+}
+
+.content-right div .bullets li {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.content-right div .bullet-half{
+    margin-top: 1.8rem;
+}
+
+.content-left {
+    width: 46%;
+}
+
+.content-left div .bullets li {
+    margin-bottom: 1.5rem;
+}
+
+.content-left div .bullet-top {
+    margin-top: 2rem;
+}
+
+.content-left div .list-top {
+    margin-bottom: 1.5em;
 }

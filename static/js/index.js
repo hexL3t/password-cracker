@@ -15,17 +15,31 @@ document.addEventListener("DOMContentLoaded", function () {
             form.reset();
         }
 
+        // Clear the original password section
+        let ogPass = document.querySelector('.result-value');
+        if (ogPass) {
+            ogPass.innerHTML = ''; // Clears the original password
+        }
+
         // Clear the result section
-        let resultContainer = document.querySelector('.pwc_result');
+        let resultContainer = document.querySelector('.crack-value');
         if (resultContainer) {
             resultContainer.innerHTML = ''; // Clears the progress/results
         }
+
+        // Clear the time section
+        let resultTime = document.querySelector('.result-time');
+        if (resultTime) {
+            resultTime.innerHTML = ''; // Clears the progress/results
+        }
+        
 
         // Clear the list items in all `.tab-content` sections
         let tabContentLists = document.querySelectorAll('.tab-content ul');
         tabContentLists.forEach(function (ul) {
             ul.innerHTML = ''; // Removes all list items inside the <ul>
         });
+        
 
         console.log("Progress cleared!");
     }

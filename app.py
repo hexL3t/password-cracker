@@ -35,7 +35,7 @@ def passwordCracker(password):
     # Convert time to milliseconds if less than 1 second
     if elapsedTime < 1:
         elapsedTime = round(elapsedTime * 1000, 3)  # Convert to milliseconds (ms)
-        time_format = f"{elapsedTime} ms"
+        time_format = f"{elapsedTime} milliseconds"
     else:
         time_format = f"{round(elapsedTime, 3)} seconds"
     
