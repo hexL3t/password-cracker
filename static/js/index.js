@@ -40,3 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
         progressButton.classList.add("active");
     }
 });
+
+// This function ensures the correct viewport height handling on mobile browsers
+function adjustViewportHeight() {
+    // Set the height of the body to be the inner height of the window, minus the mobile address bar
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    document.documentElement.style.height = `calc(var(--vh, 1vh) * 100)`;
+}
+
+// Adjust on page load
+adjustViewportHeight();
+
+// Adjust on window resize (mobile address bar shows/hides)
+window.addEventListener('resize', adjustViewportHeight);
+
