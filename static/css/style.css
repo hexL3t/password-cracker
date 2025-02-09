@@ -634,6 +634,7 @@ button:hover {
 
 .code-lines{
   font-size: 1rem;
+  padding-right: 0.5rem;
 }
 
 .view-more-btn  {
@@ -646,6 +647,10 @@ button:hover {
   top: 0.1rem;
   right: 1.5rem;
   width: 5.5rem;
+}
+
+.view-more-btn.expanded::before {
+  content: "close code";  /* New text when expanded */
 }
 
 .view-more-btn  i{

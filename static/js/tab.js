@@ -110,14 +110,16 @@ document.getElementById("clear-progress-btn").addEventListener("click", function
     const codeContainer = document.getElementById("code-container");
     const tabContent = document.getElementById("code");
     const tabContainer = document.querySelector(".tab-container"); // Reference to the parent container
-    const passEnter = document.querySelector(".pwc");
 
-    // Toggle the "expanded" class on the tab content, code container, and tab container
     viewMoreButton.addEventListener("click", function () {
+        // Toggle the expanded state for all elements
         codeContainer.classList.toggle("expanded");
         tabContent.classList.toggle("expanded");
         tabContainer.classList.toggle("expanded");
-        passEnter.classList.toggle("expanded");
+
+        // Toggle the "expanded" class on the button to change the text
+        viewMoreButton.classList.toggle("expanded");
     });
 });
+
 
