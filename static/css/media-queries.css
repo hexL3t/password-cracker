@@ -1,0 +1,169 @@
+/* Small Screens */
+@media screen and (max-width: 320px){
+    html, body {
+        height: 100%;  /* Ensure the full height on small screens */
+    }
+
+    section {
+        width: 100vw;
+    }
+
+    .header-content p {
+        width: 90%;
+    }
+
+    .password-cracker {
+        padding: 1rem;
+    }
+
+    .info-content,
+    .password-cracker{
+        width: 90vw;
+        flex-direction: column;
+        padding: 1.3rem;
+    }
+
+    .content,
+    .pwc_result {
+        flex-direction: column;
+    }
+
+    .pwc,
+    .tab-container,
+    .og-pass,
+    .crack-pass{
+        width: 100%;
+    }
+
+    .og-pass,
+    .crack-pass{
+        padding: 0;
+    }
+
+    .pwc_time {
+        padding-right: 0;
+        padding-top: 1rem;
+    }
+
+    .time-taken:hover::before{
+        position: absolute;
+        margin-bottom: -3rem;
+        left: 0.3rem;
+        width: fit-content;
+    }
+
+    .content-left, .content-right{
+        width: 100%;
+    }
+
+    .content-left div .bullets,    
+    .content-right div .bullets {
+        margin-top: 0.3rem;
+    }
+    .content-left div .bullets li {
+        margin-bottom: 3.6rem;
+    }
+
+    .bullet-top {
+        margin-bottom: 0;
+    }
+
+    .content-right div .bullets li {
+        margin-bottom: 1.6rem;
+    }
+
+    .content-right div .bullet-half {
+        margin-top: 2.95rem;
+    }
+
+    /* Ensure footer stays at the bottom */
+    .footer {
+        margin-top: auto;
+    }
+}
+
+
+/* Larger Screens */
+@media screen and (min-width: 390px){ 
+    html, body {
+        height: 100%;  /* Ensure full height for larger screens */
+    }
+
+    section {
+        width: 100vw;
+    }
+
+    .header-content p {
+        width: 90%;
+    }
+
+    .password-cracker {
+        width: 90vw;
+        padding-top: 3rem;
+    }
+
+    .content,
+    .pwc_result,
+    .info-content {
+        flex-direction: column;
+    }
+
+    .pwc {
+        margin-top: 1rem;
+    }
+
+    .pwc,
+    .tab-container,
+    .og-pass,
+    .crack-pass,
+    .content-left,
+    .content-right {
+        width: 100%;
+    }
+
+    .pwc_time {
+        margin-top: 1rem;
+        justify-content: center;
+        padding-right: 0;
+    }
+
+    .time-taken:hover::before{
+        position: absolute;
+        margin-bottom: -3rem;
+        left: 1.5rem;
+        width: fit-content;
+    }
+
+    .content-left div .bullets,    
+    .content-right div .bullets {
+        margin-top: 0.3rem;
+    }
+    .content-left div .bullets li {
+        margin-bottom: 2.8rem;
+    }
+
+    .content-left div .bullet-top {
+        margin-bottom: 3.2rem!important;
+    }
+
+    .content-left div .bullet-bottom {
+        margin-top: -1rem;
+    }
+
+    .content-right div .list-text {
+        padding-top: 0.8rem;
+    }
+
+    .content-right div .bullets li {
+        margin-bottom: 1.5rem;
+    }
+
+    .content-right div .bullet-half {
+        margin-top: 3rem;
+    }
+
+    /* Ensure footer stays at the bottom */
+    .footer {
+        margin-top: auto;
+    }
+}

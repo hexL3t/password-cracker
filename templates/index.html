@@ -6,6 +6,7 @@
 
     <!--==== CSS ====-->    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media-queries.css') }}">
 
     <!--==== REMIXICON ====-->    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
@@ -63,25 +64,31 @@
 
                 <div class="tab-container">
                     <div class="tabs">
-                        <button class="tab-button" onclick="openTab('progress')">progress</button>
-                        <button class="tab-button" onclick="openTab('code')">code</button>
+                        <button class="tab-button active" data-tab="progress" onclick="openTab('progress')">Progress</button>
+                        <button class="tab-button" data-tab="code" onclick="openTab('code')">Code</button>
                     </div>
-                {% if cracked_progress %}
-                    <div class="tab-content" id="progress">
-                        <p class="tab-title">cracked progress:</p>
-                        <ul>
-                            {% for progress in cracked_progress %}
-                            <li><span class="progress-number">{{ loop.index }}</span> {{ progress }}</li>
-                            {% endfor %}
-                        </ul>
+                
+                    <div class="tab-content active" id="progress">
+                        <p class="tab-title">Cracked Progress:</p>
+                        {% if cracked_progress %}
+                            <ul>
+                                {% for progress in cracked_progress %}
+                                    <li><span class="progress-number">{{ loop.index }}</span> {{ progress }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No password has been entered yet.</p>
+                        {% endif %}
                     </div>
+                
                     <div class="tab-content" id="code">
-                        <p class="tab-title">python code:</p>
-                        <ul>
-
-                        </ul>
+                        <p class="tab-title">Python Code:</p>
+                        <ul></ul>
                     </div>
                 </div>
+                
+                
+                
             </div>
 
             <div class="pwc_result">
@@ -106,8 +113,7 @@
                 <div class="result-time">
                     <p>{{ elapsed_time }}</p>
                 </div>
-            </div>
-            {% endif %}        
+            </div>     
         </div>
     </section>
 
@@ -130,7 +136,7 @@
                         <li>2</li>
                         <li class="bullet-top">3</li>
                         <li class="bullet-top">4</li>
-                        <li class="bullet-top">5</li>
+                        <li class="bullet-bottom">5</li>
                     </ul>
                 </div>
             </div>
