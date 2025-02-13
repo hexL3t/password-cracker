@@ -128,7 +128,24 @@ function fetchAndDisplayFile(language) {
         });
 }
 
-// Handle "View More" functionality for both Python and JavaScript code sections
+// Function to toggle expanded state for specific content sections
+function toggleExpandedState(tabContent, codeContainer, viewMoreButton) {
+    // Debugging log to track the expanded state
+    console.log("Toggling expanded state for:", tabContent, codeContainer, viewMoreButton);
+
+    // Only toggle the state of the selected section
+    if (!tabContent.classList.contains("expanded")) {
+        tabContent.classList.add("expanded");
+        codeContainer.classList.add("expanded");
+        viewMoreButton.classList.add("expanded");
+    } else {
+        tabContent.classList.remove("expanded");
+        codeContainer.classList.remove("expanded");
+        viewMoreButton.classList.remove("expanded");
+    }
+}
+
+// Event listener for Python View More button
 document.addEventListener("DOMContentLoaded", function () {
     const pyViewMoreButton = document.querySelector("#pycode .view-more-btn");
     const jsViewMoreButton = document.querySelector("#jscode .view-more-btn");
@@ -139,54 +156,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const pyTabContent = document.getElementById("pycode");
     const jsTabContent = document.getElementById("jscode");
 
-    // Get tab container and pwordcracker to handle expanded state toggling
-    const tabContainer = document.querySelector(".tab-container");
-    const pwordcracker = document.querySelector(".pwc");
-
-    // Function to toggle expanded state
-    function toggleExpandedState(tabContent, codeContainer, viewMoreButton) {
-        // Remove 'expanded' class from all sections before toggling
-        document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("expanded"));
-        document.querySelectorAll(".code-container").forEach(container => container.classList.remove("expanded"));
-        document.querySelectorAll(".view-more-btn").forEach(button => button.classList.remove("expanded"));
-
-        // Now toggle the expanded state for the clicked section
-        if (!tabContent.classList.contains("expanded")) {
-            tabContent.classList.add("expanded");
-            codeContainer.classList.add("expanded");
-            viewMoreButton.classList.add("expanded");
-        }
-    }
-
+    // Handle Python 'View More' button click
     if (pyViewMoreButton) {
         pyViewMoreButton.addEventListener("click", function () {
-            // Toggle the expanded state for Python code section only
+            // Toggle the expanded state for Python content section
             toggleExpandedState(pyTabContent, pyCodeContainer, pyViewMoreButton);
-
-            // Ensure tab container and pwordcracker are expanded when Python code is shown
-            if (tabContainer) {
-                tabContainer.classList.toggle("expanded");
-            }
-            if (pwordcracker) {
-                pwordcracker.classList.toggle("expanded");
-            }
         });
     } else {
         console.warn("Python View More button not found.");
     }
 
+    // Handle JavaScript 'View More' button click
     if (jsViewMoreButton) {
         jsViewMoreButton.addEventListener("click", function () {
-            // Toggle the expanded state for JavaScript code section only
+            // Toggle the expanded state for JavaScript content section
             toggleExpandedState(jsTabContent, jsCodeContainer, jsViewMoreButton);
-
-            // Ensure tab container and pwordcracker are expanded when JavaScript code is shown
-            if (tabContainer) {
-                tabContainer.classList.toggle("expanded");
-            }
-            if (pwordcracker) {
-                pwordcracker.classList.toggle("expanded");
-            }
         });
     } else {
         console.warn("JavaScript View More button not found.");
