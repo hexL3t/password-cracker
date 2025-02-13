@@ -36,7 +36,7 @@ function passwordCracker(password) {
     let elapsedTime = endTime - startTime;
     
     // Format the elapsed time in a human-readable format (milliseconds or seconds)
-    let timeFormat = elapsedTime < 1 ? `${elapsedTime.toFixed(2)} milliseconds` : `${(elapsedTime / 1000).toFixed(2)} seconds`;
+    let timeFormat = elapsedTime < 1 ? `${elapsedTime.toFixed(3)} milliseconds` : `${(elapsedTime / 1000).toFixed(3)} seconds`;
 
     // Return the progress made during cracking and the time taken in the desired format
     return { crackedProgress, elapsedTime: timeFormat };
