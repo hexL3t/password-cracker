@@ -95,7 +95,7 @@ function fetchAndDisplayFile(language) {
         rawGitHubURL = "https://raw.githubusercontent.com/smlcaffeineaddict/little-projects/refs/heads/main/python-projects/password-cracker.py";
         codeContainerId = "pycode-container";
     } else if (language === "javascript") {
-        rawGitHubURL = "./assets/js/pwordcracker.js"; // Adjust path if needed
+        rawGitHubURL = "https://raw.githubusercontent.com/smlcaffeineaddict/password-cracker/refs/heads/main/assets/js/pwordcracker.js"; // Adjust path if needed
         codeContainerId = "jscode-container";
     }
 
