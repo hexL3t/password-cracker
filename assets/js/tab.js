@@ -143,9 +143,29 @@ function toggleExpandedState(tabContent, codeContainer, viewMoreButton) {
         codeContainer.classList.remove("expanded");
         viewMoreButton.classList.remove("expanded");
     }
+
+       // Check screen width and hide .pwc if the tab is expanded on large screens
+       const pwcElement = document.querySelector(".pwc");
+       const tabContainer = document.querySelector(".tab-container");
+   
+       if (window.innerWidth > 1024 && tabContent.classList.contains("expanded") && pwcElement) {
+           pwcElement.style.display = "none";
+   
+           // Change tab-container width when tab is expanded on large screens
+           if (tabContainer) {
+               tabContainer.style.width = "100%";  // Example width change, adjust as needed
+           }
+       } else if (pwcElement) {
+           pwcElement.style.display = "flex";  // Ensure it's visible again on smaller screens
+   
+           // Reset tab-container width when tab is not expanded
+           if (tabContainer) {
+               tabContainer.style.width = "60%";  // Default width or adjust to your needs
+           }
+       }
 }
 
-// Event listener for Python View More button
+// Event listener for Python 'View More' button
 document.addEventListener("DOMContentLoaded", function () {
     const pyViewMoreButton = document.querySelector("#pycode .view-more-btn");
     const jsViewMoreButton = document.querySelector("#jscode .view-more-btn");

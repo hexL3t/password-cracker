@@ -62,6 +62,10 @@
     .pw_title {
         padding-top: 2rem;
     }
+
+    .pwc {
+        display: block;
+    }
 }
 
 @media screen and (min-width: 1024px){
@@ -92,6 +96,13 @@
     .og-pass, .crack-pass {
         width: 50%;
     }
+
+    .tab-content.expanded + .pwc {
+        display: none;
+    }
+    .tab-container {
+        width: 100%;  /* Default width for smaller screens */
+    }
 }
 
 
@@ -107,5 +118,10 @@
 
     .tab-container{
         width: 60%;
+    }
+
+    /* Adjust tab-container width when a tab is expanded */
+    .tab-container.expanded {
+        width: 100%;  /* Example width when expanded */
     }
 }
