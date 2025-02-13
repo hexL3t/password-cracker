@@ -1,14 +1,43 @@
 /* Small Screens */
 @media screen and (max-width: 390px){
+    .main {
+        justify-self: center;
+    }
+
+    .core {
+        padding: 1rem 0;
+    }
+
     section,
     .container{
         width: 100vw;
     }
-}
 
-.pwc,
-.og-pass {
-  width: 45%;
+    .header-content,
+    .password-cracker,
+    .info-content  {
+        width: 92%;
+        padding: 5%;
+    }
+
+    .tab-button {
+        padding: 0.5rem 0.5rem;
+    }
+
+    .pwc_result,
+    .info-content {
+        flex-direction: column;
+        row-gap: 0.8rem;
+    }
+
+    .og-pass, .crack-pass {
+        width: 100%;
+    }
+
+    .info-content {
+        row-gap: 2rem;;
+    }
+    
 }
 
 /* Larger Screens */
