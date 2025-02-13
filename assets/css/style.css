@@ -264,12 +264,16 @@ nav {
     grid-template-columns: auto auto;
     grid-gap: 0.5rem;
     column-gap: 0.5rem;
-    align-self: center;
+    justify-self: left;
+}
+
+.list-text li {
+  align-content: center;
 }
 
 .bullet {
    font-size: 1.5rem;
-   align-content: center;
+   justify-self: center;
    padding: 0.3rem;
 }
 
@@ -619,8 +623,8 @@ button:hover {
   display: flex;
 }
 
-#progress-list li .code-lines {
-  padding-left: 0.4rem;
+.line-numbers-container {
+  padding-right: 0.4rem;
 }
 
 .code-container.expanded {
