@@ -160,7 +160,7 @@ function toggleExpandedState(tabContent, codeContainer, viewMoreButton) {
    
            // Reset tab-container width when tab is not expanded
            if (tabContainer) {
-               tabContainer.style.width = "60%";  // Default width or adjust to your needs
+               tabContainer.style.width = "100%";  // Default width or adjust to your needs
            }
        }
 }
