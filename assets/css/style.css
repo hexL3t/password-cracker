@@ -478,10 +478,6 @@ nav {
     transform: scaleX(-1);
   }
 
-
-  .crack-value {
-
-  }
 /* Form */
 form {
     width: 100%;
@@ -615,6 +611,18 @@ button:hover {
   transition: all 0.3s ease; /* Smooth transition */
 }
 
+.tab-content ul {
+  flex-direction: column;
+}
+
+.code-container li {
+  display: flex;
+}
+
+#progress-list li .code-lines {
+  padding-left: 0.4rem;
+}
+
 .code-container.expanded {
   height: 600px; /* Increased size when expanded */
   overflow: auto; /* Show overflowing content when expanded */
@@ -661,3 +669,4 @@ button:hover {
   background-color: transparent;
   color: var(--second-color);  /* Changes color on hover */
 }
+
