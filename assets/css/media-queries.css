@@ -37,7 +37,10 @@
     .info-content {
         row-gap: 2rem;;
     }
-    
+
+    #password {
+        letter-spacing: 1rem;
+    }   
 }
 
 /* Larger Screens */
@@ -149,8 +152,5 @@
         width: 60%;
     }
 
-    /* Adjust tab-container width when a tab is expanded */
-    .tab-container.expanded {
-        width: 100%;  /* Example width when expanded */
-    }
+
 }
