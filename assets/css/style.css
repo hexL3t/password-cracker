@@ -123,6 +123,11 @@ section, .container {
     padding: 1.7rem 0;
 }
 
+#password {
+  font-size: 1.4rem;
+  letter-spacing: 0.05rem;
+}
+
 .password-cracker, .info-content {
     margin-inline: 1.5rem;
     backdrop-filter: blur(20px);
