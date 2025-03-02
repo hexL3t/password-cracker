@@ -92,7 +92,7 @@ function fetchAndDisplayFile(language) {
     let codeContainerId = "";
 
     if (language === "python") {
-        rawGitHubURL = "https://raw.githubusercontent.com/smlcaffeineaddict/little-projects/refs/heads/main/python-projects/password-cracker.py";
+        rawGitHubURL = "https://raw.githubusercontent.com/smlcaffeineaddict/little-projects/refs/heads/main/python-projects/brute-force-password-cracker.py";
         codeContainerId = "pycode-container";
     } else if (language === "javascript") {
         rawGitHubURL = "https://raw.githubusercontent.com/smlcaffeineaddict/little-projects/refs/heads/main/javascript%20projects/password%20cracker/assets/js/pwordcracker.js";
