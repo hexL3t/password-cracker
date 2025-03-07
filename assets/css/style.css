@@ -123,11 +123,6 @@ section, .container {
     padding: 1.7rem 0;
 }
 
-#password {
-  font-size: 1.4rem;
-  letter-spacing: 0.05rem;
-}
-
 .password-cracker, .info-content {
     margin-inline: 1.5rem;
     backdrop-filter: blur(20px);
@@ -269,16 +264,12 @@ nav {
     grid-template-columns: auto auto;
     grid-gap: 0.5rem;
     column-gap: 0.5rem;
-    justify-self: left;
-}
-
-.list-text li {
-  align-content: center;
+    align-self: center;
 }
 
 .bullet {
    font-size: 1.5rem;
-   justify-self: center;
+   align-content: center;
    padding: 0.3rem;
 }
 
@@ -628,8 +619,8 @@ button:hover {
   display: flex;
 }
 
-.line-numbers-container {
-  padding-right: 0.4rem;
+#progress-list li .code-lines {
+  padding-left: 0.4rem;
 }
 
 .code-container.expanded {
