@@ -99,10 +99,10 @@ function fetchAndDisplayFile(language) {
     let codeContainerId = "";
 
     if (language === "python") {
-        rawGitHubURL = "https://raw.githubusercontent.com/smlcaffeineaddict/little-projects/refs/heads/main/python-projects/brute-force-password-cracker.py";
+        rawGitHubURL = "hhttps://raw.githubusercontent.com/smlcaffeineaddict/little-projects/refs/heads/main/python-projects/brute-force-password-cracker.py";
         codeContainerId = "pycode-container";
     } else if (language === "javascript") {
-        rawGitHubURL = "https://raw.githubusercontent.com/smlcaffeineaddict/password-cracker/refs/heads/main/assets/js/brute-force.js?token=GHSAT0AAAAAAC7VPLLZ77GMYIF3FVU37KH6Z6KPCJA";
+        rawGitHubURL = "https://raw.githubusercontent.com/smlcaffeineaddict/little-projects/refs/heads/main/javascript%20projects/password%20cracker/assets/js/pwordcracker.js";
         codeContainerId = "jscode-container";
     }
 
@@ -193,6 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.warn("Python View More button not found.");
     }
 
+    // Handle JavaScript 'View More' button click
     if (jsViewMoreButton) {
         jsViewMoreButton.addEventListener("click", function () {
             // Toggle the expanded state for JavaScript code section only
