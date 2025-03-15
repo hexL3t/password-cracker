@@ -7,18 +7,25 @@
     --white-color: hsl(0, 0%, 100%);
     --black-color: hsl(0, 0%, 0%);
 
-    --first-color: hsl(220, 100%, 41%);
-    --second-color: hsl(335, 98%, 50%);
-    --third-color: hsl(208, 100%, 6%);
+    --first-color: var(--red-color);
+    --second-color: var(--navy-color);
+    --third-color: var(--teal-color);
 
-    --blue-color: hsla(220, 100%, 41%, .25);
-    --blue-color-border: hsla(220, 100%, 41%, .75);
+    --red-color: rgba(170, 0, 43, 1);
+    --navy-color: rgba(0, 48, 74, 1);
+    --teal-color:  rgba(22, 167, 182, 1);
 
-    --pink-color: hsla(335, 98%, 50%, .5);
-    --pink-color-border: hsla(335, 98%, 50%, .75);
+    --accent-1: #8c2449;
+    --accent-2: #724566;
+    --accent-3: #546884;
+    --accent-4: #107de9;
 
-    --navy-color: hsla(208, 100%, 6%, .40);
-    --navy-color-border: hsla(208, 100%, 6%, .7);
+    --neutrals-1: #8e8e8e;
+    --neutrals-2: #202529;
+
+
+    --git-navy: #010409;
+    --green-color: hsl(115, 100%, 38%);
 
     --white-transparent: hsla(0, 0%, 100%, .8);
     --empty-bg: hsla(0, 0%, 0%, 0);
@@ -53,7 +60,7 @@
 html {
     height: 100%;
     width: 100%;
-    background: var(--third-color);
+    background: var(--git-navy);
 } 
 
 body {
@@ -130,9 +137,9 @@ section, .container {
 
 .password-cracker{
     padding: 2rem;
-    border: 0.5em solid var(--pink-color);
+    border: 0.5em solid var(--first-color);
     border-radius: var(--border-radius);
-    background-color: var(--navy-color);
+    background-color: var(--git-navy);
     width: 100%;
 }
 
@@ -145,7 +152,7 @@ section, .container {
   }
 
 .progress-number {
-    color: var(--navy-color);
+    color: var(--git-navy);
 }
 
 .result-time {
@@ -240,7 +247,7 @@ nav {
 /* -- Instructions -- */
 .info-content {
     width: 90%;
-    border: 0.2rem solid var(--blue-color);
+    border: 0.2rem solid var(--third-color);
     gap: 2rem;
     align-items: flex-start;
     padding: 1.5rem;
@@ -269,8 +276,13 @@ nav {
 
 .bullet {
    font-size: 1.5rem;
-   align-content: center;
    padding: 0.3rem;
+   justify-content: center;
+}
+
+.list-text li {
+  display: flex;
+  align-items: center;
 }
 
 .left .bullet {
@@ -301,31 +313,37 @@ nav {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     padding: 0.5rem 1.5rem;
-    border: 0.8px solid var(--navy-color);
+    border: 0.8px solid var(--second-color);
     cursor: pointer;
     font-weight: 500;
-    background-color: var(--blue-color);
+    background-color: var(--second-color);
     color: var(--white-color);
     width: 50%;
+    transition: 0.3s ease-in;
+}
+
+.tab-button:hover{
+  background-color: var(--first-color);
+  border: 0.8px solid var(--first-color);
 }
 
 .tab-button.active {
-    background-color: var(--pink-color);
+    background-color: var(--first-color);
+    border: 0.8px solid var(--first-color);
 }
       
 .tab-content {
     display: none;
-    border: 0.25rem solid var(--pink-color);
-    background-color: var(--navy-color);
+    border: 0.25rem solid var(--first-color);
+    background-color: var(--git-navy);
     color: var(--white-color);
     backdrop-filter: blur(20px);
     height: 250px;
     padding: 0.5rem;
 }
 
-
 .tab-title {
-    color: var(--second-color);
+    color: var(--white-color);
     margin-bottom: 0.6rem;
     font-weight: 600;
 }
@@ -339,7 +357,7 @@ nav {
     overflow-y: auto;
     overflow-x: auto;
     scrollbar-width: thin;
-    color: var(--third-color);
+    color: var(--neutrals-2);
     padding: 0.5rem;
     background-color: var(--white-transparent);
   }
@@ -353,7 +371,7 @@ nav {
 }
 
 .tab-content::-webkit-scrollbar-thumb {
-    background-color: var(--pink-color);
+    background-color: var(--first-color);
     border-radius: 10px;
   }
 
@@ -385,18 +403,18 @@ nav {
 .result-value,
 .crack-value {
   height: 3rem;
-  border: 0.2rem solid var(--third-color);
+  border: 0.2rem solid var(--second-color);
   border-radius: var(--border-radius);
   padding: 0.5rem 1rem;
 }
 
 .result-value {
-  color: var(--third-color) !important;
+  color: var(--second-color) !important;
   background-color: var(--white-transparent);
 }
 
 .crack-value {
-  color: var(--second-color);
+  color: var(--first-color);
   background-color: var(--white-color);
 }
 
@@ -413,70 +431,7 @@ nav {
 .password-cracker {
     margin-inline:  0;
 }
-/* -- Progress and Time Styles -- */
-.progress-number {
-    color: var(--navy-color);
-  }
-  
-  .pwc_time {
-    width: 100%;
-    justify-content: right;
-    padding-right: 0.7rem;
-  }
-  
-  .result-time {
-    transition: 0.3s ease;
-    width: 13.5rem;
-    height: 2rem;
-    background-color: var(--first-color);
-    display: inherit;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .time-taken {
-    display: inherit;
-    align-items: center;
-    justify-content: center;
-    height: 2rem;
-  }
-  
-  .time-taken i {
-    padding: 0.3rem 0.3rem 0.2rem 0.3rem;
-    font-size: 1.5rem;
-    transition: 0.3s ease;
-    background-color: var(--first-color);
-  }
-  
-  .time-taken i:hover,
-  .result-time:hover {
-    background-color: transparent;
-  }
-  
-  .time-taken:hover::before {
-    position: inherit;
-    content: "time taken";
-    color: var(--white-color);
-    background-color: none;
-    font-size: 0.8rem;
-    font-weight: 400;
-    transition: opacity 0.3s ease;
-    opacity: 1;
-    margin-right: 0.4rem;
-  }
-  
-  .time-taken i:hover::before {
-    background-color: transparent;
-  }
-  
-  .time-taken::before {
-    content: "";
-    opacity: 0;
-  }
-  
-  .flask {
-    transform: scaleX(-1);
-  }
+
 
 /* Form */
 form {
@@ -520,8 +475,8 @@ form input {
 /* -- Buttons -- */
 button {
     padding: 0.5rem 1rem;
-    background-color: var(--pink-color);
-    border: 0.1rem solid var(--pink-color-border);
+    background-color: var(--first-color);
+    border: 0.1rem solid var(--first-color);
     color: var(--white-color);
     transition: 0.3s ease;
     cursor: pointer;
@@ -530,6 +485,7 @@ button {
 
 button:hover {
     background-color: var(--second-color);
+    border: 0.1rem solid var(--second-color);
   }
 
 /* Clear Btn */
@@ -540,14 +496,14 @@ button:hover {
   top: 1rem;
   padding: 0 0;
   background-color: transparent;
-  color: var(--pink-color);
+  color: var(--third-color);
   border: none;
   cursor: pointer;  /* Makes the button interactive */
   transition: 0.3s ease-in-out;
 }
 
 #clear-progress-btn:hover {
-  color: var(--second-color);  /* Changes color on hover */
+  color: var(--color);  /* Changes color on hover */
 }
 
 #clear-progress-btn i{
@@ -576,12 +532,11 @@ button:hover {
   opacity: 0;  /* Invisible by default */
 }
 
-
 /* -- Footer -- */
 .footer {
     width: 100vw;
     margin-top: auto;
-    background-color: var(--third-color);
+    background-color: var(--second-color);
     color: var(--white-color);
     padding: 0.5rem 1rem;
 }
@@ -597,7 +552,7 @@ button:hover {
   scrollbar-width: thin;
   padding: 0.5rem;
   background-color: var(--white-transparent);
-  color: var(--third-color);
+  color: var(--neutrals-2);
   overflow-y: auto;
   overflow-x: auto;
 
@@ -670,3 +625,63 @@ button:hover {
   color: var(--second-color);  /* Changes color on hover */
 }
 
+/* Supporting Tag */
+.supporting-tag{
+  width: 100vw;
+  position: relative;
+  right: 2rem;
+  top: 1rem;
+  display:grid;
+  align-items: center;
+  justify-content: right;
+  gap: 0.5rem;
+}
+
+.supporting-tag p {
+  font-size: 0.8rem;
+  color: var(--white-color);
+}
+
+/* SWITCH LABEL */
+.switch {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 0.6rem;
+}
+
+.switch p {
+  font-size: 1.1rem;
+  text-shadow:
+    1px 1px 2px var(--git-navy),
+    0 0 1em var(--green-color),
+    0 0 0.2em var(--green-color);
+  color: var(--git-navy);
+}
+
+/* Switch Btn */
+.switch-btn-on {
+  width: 30px;
+  height: 25px;
+  background: #485470;
+  border-radius: 75px;
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+              inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch-btn-on:after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: var(--green-color);
+  border-radius: 50%;
+  box-shadow: 0 5px 25px var(--green-color);
+  transform: translateX(10px);
+  transition: 0.3s ease;
+  transition-property: background, transform;
+}
