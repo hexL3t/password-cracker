@@ -76,8 +76,26 @@
     .pwc_result {
         flex-flow: column;
     }
+    .vert-line {
+        color: transparent
+    }
+
+    .supporting{
+        flex-flow: row wrap;
+    }
 }
 
+@media screen and (min-width: 490px) {
+    .vert-line {
+       color: var(--white-color);
+    }
+}
+
+@media screen and (max-width: 790px){
+    .supporting{
+        font-size: var(--small-font-size);
+    }
+}
 
 @media screen and (max-width: 1024px){
     :root {

@@ -635,6 +635,7 @@ button:hover {
   align-items: center;
   justify-content: right;
   gap: 0.5rem;
+  
 }
 
 .supporting-tag p {
@@ -684,4 +685,37 @@ button:hover {
   transform: translateX(10px);
   transition: 0.3s ease;
   transition-property: background, transform;
+}
+
+/* Supporting Logo */
+.supporting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+  padding: 1.5rem 1rem;
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+}
+
+.cybersec-pathways {
+  width: 9rem;
+  height: 3rem;
+  background-image: url(/assets/img/CyberPathways_WHITE.svg);
+  background-size: 100% 100%;
+  transition: .4s ease-in-out;
+  cursor: pointer;
+}
+
+.cybersec-pathways:hover {
+  background-image: url(/assets/img/cyberpathways-logo.svg);
+}
+
+.affliate {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.affliate:hover {
+  color: var(--third-color);
 }
